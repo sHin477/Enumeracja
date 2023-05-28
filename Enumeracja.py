@@ -21,6 +21,7 @@ print("You have selected option:", in1)
 
 if in1 == '1':
     in1 = input("Tu wpisz IP: ")
+    # Opcja skanowania OS
     def scan1(ip):
         print(f"Skanowanie {ip}, To moze troche potrwac...")
         command = ["nmap", "-F", "-Pn", "-sV", "--stats-every", "1s", in1]
@@ -34,28 +35,28 @@ if in1 == '1':
 
 elif in1 == '3':
     in1 = input("Tu wpisz IP: ")
-    # Dodano wywołanie narzędzia enum4linux
+    # Opcja enum4linux
     enum4linux_command = ["enum4linux", in1]
     enum4linux_output = subprocess.run(enum4linux_command, capture_output=True, text=True).stdout
     print(enum4linux_output)
 
 elif in1 == '4':
     in1 = input("Tu wpisz adres URL: ")
-    # Dodano wywołanie narzędzia Dirb/Dirbuster
+    # Opcja Dirb/Dirbuster
     dirb_command = ["dirb", in1]
     dirb_output = subprocess.run(dirb_command, capture_output=True, text=True).stdout
     print(dirb_output)
 
 elif in1 == '5':
     in1 = input("Tu wpisz adres URL: ")
-    # Dodano wywołanie narzędzia WPScan
+    # Opcja WPScan
     wpscan_command = ["wpscan", "--url", in1]
     wpscan_output = subprocess.run(wpscan_command, capture_output=True, text=True).stdout
     print(wpscan_output)
 
 elif in1 == '6':
     in1 = input("Tu wpisz IP: ")
-    # Dodano wywołanie narzędzia SNMPWalk
+    # Opcja SNMPWalk
     snmpwalk_command = ["snmpwalk", "-v2c", "-c", "public", in1]
     snmpwalk_output = subprocess.run(snmpwalk_command, capture_output=True, text=True).stdout
     print(snmpwalk_output)
